@@ -28,3 +28,9 @@ Todos os dados abaixo vivem em `src/config/site.ts` (procurar `[PREENCHER`).
 - [ ] Imagem de partilha 1200×630 (public/og-default.png é um placeholder liso)
 - [ ] Páginas /sobre, /servicos, /obras, /qualificacoes, /politica-de-privacidade (o rodapé já liga à de privacidade; ainda não existe)
 - [ ] Fontes (por agora tipo de letra do sistema)
+
+## Conteúdo de DEMONSTRAÇÃO a substituir antes do lançamento
+- [ ] `src/content/obras/*.md` (todas com `demo: true`) e `public/demo/*.svg`: trocar por obras e fotos reais autorizadas
+- [ ] Textos de `/servicos/*`: validar com o cliente e acrescentar factos reais (≥ ~400 palavras)
+- [ ] `showDemoBanner = false` em `src/config/site.ts`
+- O build com `PUBLIC_ENV=production` falha enquanto existir uma obra com `demo: true`.

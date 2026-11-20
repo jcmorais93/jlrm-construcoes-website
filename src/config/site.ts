@@ -49,7 +49,12 @@ export const hasPlaceholders = JSON.stringify(site).includes('[PREENCHER');
 /** Navegação. Adicionar páginas aqui só quando existirem (Fase 2). */
 export const nav = [
   { label: 'Início', href: '/' },
+  { label: 'Serviços', href: '/servicos' },
+  { label: 'Obras', href: '/obras' },
   { label: 'Contactos', href: '/contactos' },
 ];
 
 export const livroReclamacoesUrl = 'https://www.livroreclamacoes.pt/';
+
+/** Barra de aviso enquanto o site tiver conteúdo fictício. Pôr a false ao lançar. */
+export const showDemoBanner = true;

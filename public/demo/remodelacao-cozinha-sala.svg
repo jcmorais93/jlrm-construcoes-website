@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Ilustração de demonstração">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe3f1"/><stop offset="1" stop-color="#f4f1ea"/></linearGradient></defs>
+<rect width="1200" height="800" fill="url(#g)"/>
+<rect y="640" width="1200" height="160" fill="#a3b18a"/>
+<rect x="300" y="470" width="600" height="170" fill="#ece7de"/>
+<polygon points="270,470 600,340 930,470" fill="#44403c"/>
+<rect x="560" y="510" width="80" height="130" fill="#4b3621"/>
+<rect x="340" y="500" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="430" y="500" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="720" y="500" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="810" y="500" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<line x1="300" y1="460" x2="300" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="360" y1="460" x2="360" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="420" y1="460" x2="420" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="480" y1="460" x2="480" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="540" y1="460" x2="540" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="600" y1="460" x2="600" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="660" y1="460" x2="660" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="720" y1="460" x2="720" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="780" y1="460" x2="780" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="840" y1="460" x2="840" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="900" y1="460" x2="900" y2="640" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="290" y1="470" x2="910" y2="470" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="290" y1="530" x2="910" y2="530" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<line x1="290" y1="590" x2="910" y2="590" stroke="#b45309" stroke-width="4" opacity=".55"/>
+<text x="600" y="760" text-anchor="middle" font-family="sans-serif" font-size="30" fill="#374151">IMAGEM DE DEMONSTRAÇÃO</text>
+</svg>

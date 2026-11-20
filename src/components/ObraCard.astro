@@ -1,0 +1,13 @@
+---
+const { obra } = Astro.props;
+const d = obra.data;
+---
+<article class="card obra-card">
+  <img src={d.image} alt={d.alt} width="1200" height="800" loading="lazy" />
+  <div class="body">
+    <span class="meta">{d.tipo === 'construcao' ? 'Construção' : 'Remodelação'} · {d.local}</span>
+    <a href={`/obras/${obra.id}`}><h3>{d.title}</h3></a>
+    <p>{d.summary}</p>
+    {d.demo && <span class="badge">Demonstração</span>}
+  </div>
+</article>

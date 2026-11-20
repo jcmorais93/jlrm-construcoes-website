@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import { breadcrumbLd } from '../../lib/jsonld';
+const siteUrl = Astro.site!.origin;
+---
+<Base
+  title="Serviços de construção civil em Felgueiras | JLRM Construções"
+  description="Construção de moradias e remodelações em Felgueiras. Conheça os serviços da JLRM Construções."
+  jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Serviços', path: '/servicos' }])]}
+>
+  <section>
+    <div class="wrap">
+      <h1>Serviços</h1>
+      <p class="lead">Construção de moradias e remodelações, em Felgueiras e arredores.</p>
+      <div class="grid">
+        <div class="card">
+          <h2>Construção de moradias</h2>
+          <p>Da fundação aos acabamentos, com um único interlocutor.</p>
+          <a href="/servicos/construcao-de-moradias">Ver construção de moradias</a>
+        </div>
+        <div class="card">
+          <h2>Remodelações</h2>
+          <p>Interiores, fachadas, coberturas e ampliações.</p>
+          <a href="/servicos/remodelacoes">Ver remodelações</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

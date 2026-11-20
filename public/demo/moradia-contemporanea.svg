@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Ilustração de demonstração">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe3f1"/><stop offset="1" stop-color="#f4f1ea"/></linearGradient></defs>
+<rect width="1200" height="800" fill="url(#g)"/>
+<rect y="640" width="1200" height="160" fill="#a3b18a"/>
+<rect x="300" y="300" width="600" height="340" fill="#f1f1ef"/>
+<polygon points="270,300 600,170 930,300" fill="#374151"/>
+<rect x="560" y="510" width="80" height="130" fill="#4b3621"/>
+<rect x="340" y="330" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="430" y="330" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="720" y="330" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="810" y="330" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="340" y="500" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="430" y="500" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="720" y="500" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<rect x="810" y="500" width="60" height="80" fill="#9db4c0" stroke="#fff" stroke-width="6"/>
+<text x="600" y="760" text-anchor="middle" font-family="sans-serif" font-size="30" fill="#374151">IMAGEM DE DEMONSTRAÇÃO</text>
+</svg>

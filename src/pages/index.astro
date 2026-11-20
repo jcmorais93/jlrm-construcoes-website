@@ -1,72 +1,84 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import ObraCard from '../components/ObraCard.astro';
 import { site } from '../config/site';
 import { organizationLd } from '../lib/jsonld';
+import { assertNoDemo } from '../lib/demo';
 const siteUrl = Astro.site!.origin;
+const todas = (await getCollection('obras')).sort((a, b) => a.data.tipo.localeCompare(b.data.tipo));
+// 2 construções + 1 remodelação, a construção primeiro
+const obras = [todas.find((o) => o.data.tipo === 'construcao')!, todas.filter((o) => o.data.tipo === 'construcao')[1], todas.find((o) => o.data.tipo === 'remodelacao')!].filter(Boolean);
+assertNoDemo(obras.some((o) => o.data.demo), '/');
+const hero = obras[0].data;
 const ph = (s: string) => s.includes('[PREENCHER');
 ---
 <Base
   title="Construção civil em Felgueiras | JLRM Construções"
-  description="JLRM Construções: empreiteiro de obras particulares em Felgueiras. Alvará 95281-PAR. Peça o seu orçamento."
+  description="Construção de moradias e remodelações em Felgueiras. Empreiteiro com alvará de obras particulares. Peça orçamento."
   jsonLd={[organizationLd(siteUrl)]}
 >
   <div class="hero">
-    <div class="wrap">
-      <h1>Construção civil em Felgueiras</h1>
-      <p class="lead">
-        A {site.name} é uma empresa de construção civil sediada em Felgueiras,
-        com alvará de empreiteiro de obras particulares.
-      </p>
-      <div class="actions">
-        <a class="btn" href="/contactos">Pedir orçamento</a>
-        {site.contact.phoneHref && <a class="btn secondary" href={site.contact.phoneHref}>Ligar</a>}
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Construção civil em Felgueiras</h1>
+        <p class="lead">Construímos moradias e remodelamos casas, com acompanhamento próximo do início ao fim da obra.</p>
+        <div class="actions">
+          <a class="btn" href="/contactos">Pedir orçamento</a>
+          <a class="btn secondary" href="/obras">Ver obras</a>
+          {site.contact.phoneHref && <a class="btn secondary" href={site.contact.phoneHref}>Ligar</a>}
+        </div>
       </div>
-      <div class="hero-img" role="img" aria-label="Espaço reservado para fotografia de obra">
-        <span class="todo">[PREENCHER: fotografia principal de obra]</span>
-      </div>
+      <img class="hero-photo" src={hero.image} alt={hero.alt} width="1200" height="800" fetchpriority="high" />
     </div>
   </div>
 
   <section>
     <div class="wrap">
-      <h2>Quem somos</h2>
-      <p>
-        <span class="todo">[PREENCHER: apresentação da empresa, história e valores]</span>
-      </p>
-      <p>
-        Experiência:
-        <span class:list={[ph(site.legal.foundingYear) && 'todo']}>{site.legal.foundingYear}</span>
-      </p>
+      <h2>O que fazemos</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Construção de moradias</h3>
+          <p>Da preparação do terreno aos acabamentos, com orçamento detalhado e um único interlocutor.</p>
+          <a href="/servicos/construcao-de-moradias">Saber mais sobre construção de moradias</a>
+        </div>
+        <div class="card">
+          <h3>Remodelações</h3>
+          <p>Interiores, fachadas, coberturas e ampliações, planeadas para reduzir surpresas.</p>
+          <a href="/servicos/remodelacoes">Saber mais sobre remodelações</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="alt">
     <div class="wrap">
-      <h2>O que fazemos</h2>
-      <div class="grid">
-        {[1, 2, 3].map(() => (
-          <div class="card"><span class="todo">[PREENCHER: serviço e descrição curta]</span></div>
-        ))}
-      </div>
+      <h2>Obras recentes</h2>
+      <div class="grid">{obras.map((o) => <ObraCard obra={o} />)}</div>
+      <div class="actions"><a class="btn secondary" href="/obras">Ver todas as obras</a></div>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <h2>Credenciais</h2>
+      <h2>Quem somos</h2>
+      <div class="prose">
+        <p>A {site.name} é uma empresa de construção civil sediada em Felgueiras, titular de alvará de empreiteiro de obras particulares (n.º {site.legal.alvara}, classe {site.legal.alvaraClasse}).</p>
+        <p><span class="todo">[PREENCHER: história da empresa, equipa, valores e há quantos anos atua]</span></p>
+      </div>
       <dl class="facts">
-        <dt>Alvará</dt><dd>{site.legal.alvara} (obras particulares)</dd>
-        <dt>Classe</dt><dd>{site.legal.alvaraClasse}</dd>
+        <dt>Alvará</dt><dd>{site.legal.alvara} (obras particulares), classe {site.legal.alvaraClasse}</dd>
         <dt>NIF</dt><dd>{site.legal.nif}</dd>
+        <dt>Sede</dt><dd>Felgueiras</dd>
       </dl>
     </div>
   </section>
 
-  <section class="alt">
+  <section class="cta-band">
     <div class="wrap">
-      <h2>O que nos distingue</h2>
-      <p><span class="todo">[PREENCHER: diferenciais reais, sem exageros]</span></p>
-      <div class="actions"><a class="btn" href="/contactos">Fale connosco</a></div>
+      <h2>Tem uma obra em mente?</h2>
+      <p>Fale connosco. Vamos ver o local e damos-lhe um orçamento por escrito.</p>
+      <div class="actions"><a class="btn" href="/contactos">Pedir orçamento</a></div>
     </div>
   </section>
 </Base>

@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { breadcrumbLd } from '../../lib/jsonld';
+import { assertNoDemo } from '../../lib/demo';
+export async function getStaticPaths() {
+  const obras = await getCollection('obras');
+  return obras.map((obra) => ({ params: { slug: obra.id }, props: { obra } }));
+}
+const { obra } = Astro.props;
+const d = obra.data;
+assertNoDemo(d.demo, `/obras/${obra.id}`);
+const { Content } = await render(obra);
+const siteUrl = Astro.site!.origin;
+---
+<Base
+  title={`${d.title} | Obras em Felgueiras`}
+  description={d.summary}
+  jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Obras', path: '/obras' }, { name: d.title, path: `/obras/${obra.id}` }])]}
+>
+  <section>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Início</a> / <a href="/obras">Obras</a> / {d.title}</p>
+      <h1>{d.title}</h1>
+      <p class="meta">{d.tipo === 'construcao' ? 'Construção' : 'Remodelação'} · {d.local} {d.demo && <span class="badge">Demonstração</span>}</p>
+      <img class="hero-photo" src={d.image} alt={d.alt} width="1200" height="800" fetchpriority="high" />
+      <div class="prose"><Content /></div>
+      <div class="actions">
+        <a class="btn" href="/contactos">Pedir orçamento para uma obra semelhante</a>
+        <a class="btn secondary" href="/obras">Ver mais obras</a>
+      </div>
+    </div>
+  </section>
+</Base>
