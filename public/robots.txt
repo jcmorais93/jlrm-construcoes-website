@@ -1,0 +1,3 @@
+# Produção: ajustar no lançamento (Fase 4). Até lá, tudo bloqueado.
+User-agent: *
+Disallow: /
