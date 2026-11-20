@@ -7,11 +7,11 @@ import { organizationLd } from '../lib/jsonld';
 import { assertNoDemo } from '../lib/demo';
 const siteUrl = Astro.site!.origin;
 const todas = (await getCollection('obras')).sort((a, b) => a.data.tipo.localeCompare(b.data.tipo));
-// 2 construções + 1 remodelação, a construção primeiro
-const obras = [todas.find((o) => o.data.tipo === 'construcao')!, todas.filter((o) => o.data.tipo === 'construcao')[1], todas.find((o) => o.data.tipo === 'remodelacao')!].filter(Boolean);
+const cons = todas.filter((o) => o.data.tipo === 'construcao');
+const rem = todas.filter((o) => o.data.tipo === 'remodelacao');
+const obras = [cons[0], cons[1], rem[0]].filter(Boolean);
 assertNoDemo(obras.some((o) => o.data.demo), '/');
-const hero = obras[0].data;
-const ph = (s: string) => s.includes('[PREENCHER');
+const hero = cons[0].data;
 ---
 <Base
   title="Construção civil em Felgueiras | JLRM Construções"
@@ -19,58 +19,75 @@ const ph = (s: string) => s.includes('[PREENCHER');
   jsonLd={[organizationLd(siteUrl)]}
 >
   <div class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Construção civil em Felgueiras</h1>
-        <p class="lead">Construímos moradias e remodelamos casas, com acompanhamento próximo do início ao fim da obra.</p>
-        <div class="actions">
-          <a class="btn" href="/contactos">Pedir orçamento</a>
-          <a class="btn secondary" href="/obras">Ver obras</a>
-          {site.contact.phoneHref && <a class="btn secondary" href={site.contact.phoneHref}>Ligar</a>}
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="label" style="margin-bottom:1.25rem">Construção civil · Felgueiras</p>
+          <h1>Casas construídas e remodeladas com rigor.</h1>
+          <p class="lead">Construímos moradias e remodelamos casas em Felgueiras, com acompanhamento próximo do primeiro dia à entrega da obra.</p>
+          <div class="actions">
+            <a class="btn" href="/contactos">Pedir orçamento</a>
+            <a class="btn secondary" href="/obras">Ver obras</a>
+            {site.contact.phoneHref && <a class="btn secondary" href={site.contact.phoneHref}>Ligar</a>}
+          </div>
         </div>
+        <figure class="plate" style="margin:0">
+          <img src={hero.image} alt={hero.alt} width="1200" height="800" fetchpriority="high" />
+          <figcaption class="label"><span>{hero.title}</span><span>Demonstração</span></figcaption>
+        </figure>
       </div>
-      <img class="hero-photo" src={hero.image} alt={hero.alt} width="1200" height="800" fetchpriority="high" />
+      <div class="facts-strip">
+        <div><span class="label">Alvará</span><strong>{site.legal.alvara}</strong></div>
+        <div><span class="label">Classe</span><strong>{site.legal.alvaraClasse}</strong></div>
+        <div><span class="label">Obras</span><strong>Particulares</strong></div>
+        <div><span class="label">Sede</span><strong>Felgueiras</strong></div>
+      </div>
     </div>
   </div>
 
   <section>
     <div class="wrap">
-      <h2>O que fazemos</h2>
-      <div class="grid">
-        <div class="card">
+      <div class="sec-head"><span class="label">01</span><h2>O que fazemos</h2></div>
+      <div class="rows">
+        <div class="row">
+          <span class="label">A</span>
           <h3>Construção de moradias</h3>
           <p>Da preparação do terreno aos acabamentos, com orçamento detalhado e um único interlocutor.</p>
-          <a href="/servicos/construcao-de-moradias">Saber mais sobre construção de moradias</a>
+          <a class="go" href="/servicos/construcao-de-moradias">Construção de moradias →</a>
         </div>
-        <div class="card">
+        <div class="row">
+          <span class="label">B</span>
           <h3>Remodelações</h3>
           <p>Interiores, fachadas, coberturas e ampliações, planeadas para reduzir surpresas.</p>
-          <a href="/servicos/remodelacoes">Saber mais sobre remodelações</a>
+          <a class="go" href="/servicos/remodelacoes">Remodelações →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="alt">
+  <section style="padding-top:0">
     <div class="wrap">
-      <h2>Obras recentes</h2>
-      <div class="grid">{obras.map((o) => <ObraCard obra={o} />)}</div>
-      <div class="actions"><a class="btn secondary" href="/obras">Ver todas as obras</a></div>
+      <div class="sec-head"><span class="label">02</span><h2>Obras recentes</h2></div>
+      <div class="obras-grid three">{obras.map((o, i) => <ObraCard obra={o} index={i} />)}</div>
+      <div class="actions"><a class="btn secondary" href="/obras">Todas as obras</a></div>
     </div>
   </section>
 
-  <section>
+  <section style="background:var(--concrete)">
     <div class="wrap">
-      <h2>Quem somos</h2>
-      <div class="prose">
-        <p>A {site.name} é uma empresa de construção civil sediada em Felgueiras, titular de alvará de empreiteiro de obras particulares (n.º {site.legal.alvara}, classe {site.legal.alvaraClasse}).</p>
-        <p><span class="todo">[PREENCHER: história da empresa, equipa, valores e há quantos anos atua]</span></p>
+      <div class="sec-head" style="border-color:var(--ink)"><span class="label">03</span><h2>Quem somos</h2></div>
+      <div class="two">
+        <div>
+          <p class="statement">{site.name} é uma empresa de construção civil sediada em Felgueiras, com alvará de empreiteiro de obras particulares.</p>
+          <p style="margin-top:1.5rem"><span class="todo">[PREENCHER: história da empresa, equipa, valores e há quantos anos atua]</span></p>
+        </div>
+        <dl class="facts">
+          <div><dt>Alvará</dt><dd>{site.legal.alvara}</dd></div>
+          <div><dt>Classe</dt><dd>{site.legal.alvaraClasse}</dd></div>
+          <div><dt>NIF</dt><dd>{site.legal.nif}</dd></div>
+          <div><dt>Sede</dt><dd>Felgueiras</dd></div>
+        </dl>
       </div>
-      <dl class="facts">
-        <dt>Alvará</dt><dd>{site.legal.alvara} (obras particulares), classe {site.legal.alvaraClasse}</dd>
-        <dt>NIF</dt><dd>{site.legal.nif}</dd>
-        <dt>Sede</dt><dd>Felgueiras</dd>
-      </dl>
     </div>
   </section>
 

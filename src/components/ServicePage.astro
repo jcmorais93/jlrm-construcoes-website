@@ -16,15 +16,15 @@ const service = {
 ---
 <Base title={title} description={description}
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Serviços', path: '/servicos' }, { name, path: `/servicos/${slug}` }]), service]}>
-  <section>
-    <div class="wrap">
-      <p class="crumbs"><a href="/">Início</a> / <a href="/servicos">Serviços</a> / {name}</p>
-      <h1>{h1}</h1>
-      <div class="prose"><slot /></div>
-      <div class="actions">
-        <a class="btn" href="/contactos">Pedir orçamento</a>
-        <a class="btn secondary" href="/obras">Ver obras</a>
-      </div>
+  <div class="page-head"><div class="wrap">
+    <p class="crumbs"><a href="/">Início</a> / <a href="/servicos">Serviços</a> / {name}</p>
+    <h1>{h1}</h1>
+  </div></div>
+  <div class="page-body"><div class="wrap">
+    <div class="prose"><slot /></div>
+    <div class="actions">
+      <a class="btn" href="/contactos">Pedir orçamento</a>
+      <a class="btn secondary" href="/obras">Ver obras</a>
     </div>
-  </section>
+  </div></div>
 </Base>

@@ -13,11 +13,12 @@ const siteUrl = Astro.site!.origin;
   description="Veja obras de construção de moradias e remodelações da JLRM Construções em Felgueiras."
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Obras', path: '/obras' }])]}
 >
-  <section>
-    <div class="wrap">
-      <h1>Obras</h1>
-      <p class="lead">Construção de moradias e remodelações.</p>
-      <div class="grid">{obras.map((o) => <ObraCard obra={o} />)}</div>
-    </div>
-  </section>
+  <div class="page-head"><div class="wrap">
+    <p class="crumbs"><a href="/">Início</a> / Obras</p>
+    <h1>Obras</h1>
+    <p class="lead">Construção de moradias e remodelações.</p>
+  </div></div>
+  <div class="page-body"><div class="wrap">
+    <div class="obras-grid">{obras.map((o, i) => <ObraCard obra={o} index={i} />)}</div>
+  </div></div>
 </Base>

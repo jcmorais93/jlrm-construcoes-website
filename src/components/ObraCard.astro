@@ -1,12 +1,15 @@
 ---
-const { obra } = Astro.props;
+const { obra, index = 0 } = Astro.props;
 const d = obra.data;
+const n = String(index + 1).padStart(2, '0');
 ---
-<article class="card obra-card">
-  <img src={d.image} alt={d.alt} width="1200" height="800" loading="lazy" />
-  <div class="body">
-    <span class="meta">{d.tipo === 'construcao' ? 'Construção' : 'Remodelação'} · {d.local}</span>
-    <a href={`/obras/${obra.id}`}><h3>{d.title}</h3></a>
+<article class="obra">
+  <figure class="plate" style="margin:0">
+    <img src={d.image} alt={d.alt} width="1200" height="800" loading="lazy" />
+    <figcaption class="label"><span>{d.tipo === 'construcao' ? 'Construção' : 'Remodelação'}</span><span>{d.local}</span></figcaption>
+  </figure>
+  <div class="info">
+    <h3><a href={`/obras/${obra.id}`}>{d.title}</a></h3>
     <p>{d.summary}</p>
     {d.demo && <span class="badge">Demonstração</span>}
   </div>
