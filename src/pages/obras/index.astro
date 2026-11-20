@@ -19,6 +19,6 @@ const siteUrl = Astro.site!.origin;
     <p class="lead">Construção de moradias e remodelações.</p>
   </div></div>
   <div class="page-body"><div class="wrap">
-    <div class="obras-grid">{obras.map((o, i) => <ObraCard obra={o} index={i} />)}</div>
+    <div class="obras-grid">{obras.map((o, i) => <ObraCard obra={o} index={i} level={2} />)}</div>
   </div></div>
 </Base>

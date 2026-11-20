@@ -10,7 +10,7 @@ const service = {
   '@type': 'Service',
   name,
   serviceType: name,
-  provider: { '@id': `${siteUrl}/#organization` },
+  provider: { '@type': 'GeneralContractor', name: site.name, url: siteUrl },
   url: `${siteUrl}/servicos/${slug}`,
 };
 ---

@@ -67,7 +67,7 @@ section { padding-block: clamp(3rem, 8vw, 6rem); }
 .rows { border-top: 1px solid var(--ink); }
 .row { display: grid; gap: .5rem 1.5rem; padding-block: 1.75rem; border-bottom: 1px solid var(--ink); grid-template-columns: 3rem 1fr; align-items: start; }
 @media (min-width: 48rem) { .row { grid-template-columns: 4rem 1fr 1.2fr auto; align-items: center; } }
-.row h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.row :is(h2, h3) { font-size: clamp(1.5rem, 3vw, 2.1rem); }
 .row p { margin: 0; color: var(--muted); }
 .row a.go { font: 700 .95rem var(--display); color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: .1rem; white-space: nowrap; }
 .row a.go:hover { color: var(--accent); }
