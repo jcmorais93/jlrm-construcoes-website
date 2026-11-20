@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import { MOCK } from '../lib/contact-form';
 ---
 <form id="contact-form" novalidate method="post" action="#" class="form">
@@ -25,7 +26,7 @@ import { MOCK } from '../lib/contact-form';
   <p class="todo" style="display:inline-block">[PREENCHER: widget Cloudflare Turnstile (anti-spam)]</p>
   <div class="check">
     <input id="rgpd" name="rgpd" type="checkbox" required />
-    <label for="rgpd">Li e aceito a <a href="/politica-de-privacidade">política de privacidade</a> e autorizo o contacto para responder ao meu pedido.</label>
+    <label for="rgpd">Li e aceito a <a href={u('/politica-de-privacidade')}>política de privacidade</a> e autorizo o contacto para responder ao meu pedido.</label>
   </div>
   <button class="btn" type="submit">Enviar pedido</button>
   <p data-status role="status" aria-live="polite" class="form-status"></p>

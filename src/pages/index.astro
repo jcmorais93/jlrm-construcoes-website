@@ -1,11 +1,12 @@
 ---
+import { u, siteRoot } from '../lib/url';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ObraCard from '../components/ObraCard.astro';
 import { site } from '../config/site';
 import { organizationLd } from '../lib/jsonld';
 import { assertNoDemo } from '../lib/demo';
-const siteUrl = Astro.site!.origin;
+const siteUrl = siteRoot(Astro.site!);
 const todas = (await getCollection('obras')).sort((a, b) => a.data.tipo.localeCompare(b.data.tipo));
 const cons = todas.filter((o) => o.data.tipo === 'construcao');
 const rem = todas.filter((o) => o.data.tipo === 'remodelacao');
@@ -26,13 +27,13 @@ const hero = cons[0].data;
           <h1>Casas construídas e remodeladas com rigor.</h1>
           <p class="lead">Construímos moradias e remodelamos casas, com acompanhamento próximo do primeiro dia à entrega da obra.</p>
           <div class="actions">
-            <a class="btn" href="/contactos">Pedir orçamento</a>
-            <a class="btn secondary" href="/obras">Ver obras</a>
+            <a class="btn" href={u('/contactos')}>Pedir orçamento</a>
+            <a class="btn secondary" href={u('/obras')}>Ver obras</a>
             {site.contact.phoneHref && <a class="btn secondary" href={site.contact.phoneHref}>Ligar</a>}
           </div>
         </div>
         <figure class="plate" style="margin:0">
-          <img src={hero.image} alt={hero.alt} width="1200" height="800" fetchpriority="high" />
+          <img src={u(hero.image)} alt={hero.alt} width="1200" height="800" fetchpriority="high" />
           <figcaption class="label"><span>{hero.title}</span><span>Demonstração</span></figcaption>
         </figure>
       </div>
@@ -53,13 +54,13 @@ const hero = cons[0].data;
           <span class="label">A</span>
           <h3>Construção de moradias</h3>
           <p>Da preparação do terreno aos acabamentos, com orçamento detalhado e um único interlocutor.</p>
-          <a class="go" href="/servicos/construcao-de-moradias">Construção de moradias →</a>
+          <a class="go" href={u('/servicos/construcao-de-moradias')}>Construção de moradias →</a>
         </div>
         <div class="row">
           <span class="label">B</span>
           <h3>Remodelações</h3>
           <p>Interiores, fachadas, coberturas e ampliações, planeadas para reduzir surpresas.</p>
-          <a class="go" href="/servicos/remodelacoes">Remodelações →</a>
+          <a class="go" href={u('/servicos/remodelacoes')}>Remodelações →</a>
         </div>
       </div>
     </div>
@@ -69,7 +70,7 @@ const hero = cons[0].data;
     <div class="wrap">
       <div class="sec-head"><span class="label">02</span><h2>Obras recentes</h2></div>
       <div class="obras-grid three">{obras.map((o, i) => <ObraCard obra={o} index={i} />)}</div>
-      <div class="actions"><a class="btn secondary" href="/obras">Todas as obras</a></div>
+      <div class="actions"><a class="btn secondary" href={u('/obras')}>Todas as obras</a></div>
     </div>
   </section>
 
@@ -98,7 +99,7 @@ const hero = cons[0].data;
         <p class="statement">A partir de Felgueiras, trabalhamos em vários concelhos da região, de Guimarães a Amarante e de Lousada a Fafe.</p>
         <div>
           <p style="margin-top:0">{site.areaServed.slice(0, 8).join(', ')} e outros concelhos vizinhos.</p>
-          <a class="go" style="font-weight:700;color:var(--ink)" href="/zonas-de-atuacao">Ver todas as zonas de atuação →</a>
+          <a class="go" style="font-weight:700;color:var(--ink)" href={u('/zonas-de-atuacao')}>Ver todas as zonas de atuação →</a>
         </div>
       </div>
     </div>
@@ -108,7 +109,7 @@ const hero = cons[0].data;
     <div class="wrap">
       <h2>Tem uma obra em mente?</h2>
       <p>Fale connosco. Vamos ver o local e damos-lhe um orçamento por escrito.</p>
-      <div class="actions"><a class="btn" href="/contactos">Pedir orçamento</a></div>
+      <div class="actions"><a class="btn" href={u('/contactos')}>Pedir orçamento</a></div>
     </div>
   </section>
 </Base>

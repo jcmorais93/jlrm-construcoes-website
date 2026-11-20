@@ -1,7 +1,8 @@
 ---
+import { u, siteRoot } from '../../lib/url';
 import Base from '../../layouts/Base.astro';
 import { breadcrumbLd } from '../../lib/jsonld';
-const siteUrl = Astro.site!.origin;
+const siteUrl = siteRoot(Astro.site!);
 ---
 <Base
   title="Serviços de construção civil | JLRM Construções"
@@ -9,14 +10,14 @@ const siteUrl = Astro.site!.origin;
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Serviços', path: '/servicos' }])]}
 >
   <div class="page-head"><div class="wrap">
-    <p class="crumbs"><a href="/">Início</a> / Serviços</p>
+    <p class="crumbs"><a href={u('/')}>Início</a> / Serviços</p>
     <h1>Serviços</h1>
     <p class="lead">Construção de moradias e remodelações.</p>
   </div></div>
   <div class="page-body"><div class="wrap">
     <div class="rows">
-      <div class="row"><span class="label">01</span><h2>Construção de moradias</h2><p>Da fundação aos acabamentos, com um único interlocutor.</p><a class="go" href="/servicos/construcao-de-moradias">Ver serviço →</a></div>
-      <div class="row"><span class="label">02</span><h2>Remodelações</h2><p>Interiores, fachadas, coberturas e ampliações.</p><a class="go" href="/servicos/remodelacoes">Ver serviço →</a></div>
+      <div class="row"><span class="label">01</span><h2>Construção de moradias</h2><p>Da fundação aos acabamentos, com um único interlocutor.</p><a class="go" href={u('/servicos/construcao-de-moradias')}>Ver serviço →</a></div>
+      <div class="row"><span class="label">02</span><h2>Remodelações</h2><p>Interiores, fachadas, coberturas e ampliações.</p><a class="go" href={u('/servicos/remodelacoes')}>Ver serviço →</a></div>
     </div>
   </div></div>
 </Base>

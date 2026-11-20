@@ -1,9 +1,10 @@
 ---
+import { u, siteRoot } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { site } from '../config/site';
 import { organizationLd, breadcrumbLd } from '../lib/jsonld';
-const siteUrl = Astro.site!.origin;
+const siteUrl = siteRoot(Astro.site!);
 const { contact } = site;
 const a = contact.address;
 ---
@@ -13,7 +14,7 @@ const a = contact.address;
   jsonLd={[organizationLd(siteUrl), breadcrumbLd(siteUrl, [{ name: 'Contactos', path: '/contactos' }])]}
 >
   <div class="page-head"><div class="wrap">
-    <p class="crumbs"><a href="/">Início</a> / Contactos</p>
+    <p class="crumbs"><a href={u('/')}>Início</a> / Contactos</p>
     <h1>Contactos</h1>
     <p class="lead">Fale connosco para pedir um orçamento para a sua obra.</p>
   </div></div>

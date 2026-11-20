@@ -1,8 +1,9 @@
 ---
+import { u, siteRoot } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import { site } from '../config/site';
 import { breadcrumbLd } from '../lib/jsonld';
-const siteUrl = Astro.site!.origin;
+const siteUrl = siteRoot(Astro.site!);
 const { legal, contact } = site;
 ---
 <Base
@@ -11,7 +12,7 @@ const { legal, contact } = site;
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Política de privacidade', path: '/politica-de-privacidade' }])]}
 >
   <div class="page-head"><div class="wrap">
-    <p class="crumbs"><a href="/">Início</a> / Política de privacidade</p>
+    <p class="crumbs"><a href={u('/')}>Início</a> / Política de privacidade</p>
     <h1>Política de privacidade</h1>
     <p class="lead"><span class="todo">[PREENCHER: texto-base a validar pelo cliente e por um jurista]</span></p>
   </div></div>

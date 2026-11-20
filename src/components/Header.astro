@@ -1,15 +1,16 @@
 ---
+import { u, stripBase } from '../lib/url';
 import { nav } from '../config/site';
-const path = Astro.url.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
+const path = stripBase(Astro.url.pathname).replace(/(\/index)?(\.html)?\/?$/, '') || '/';
 const active = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '/'));
 ---
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="JLRM Construções, início"><strong>JLRM</strong><span>Construções</span></a>
+    <a class="brand" href={u('/')} aria-label="JLRM Construções, início"><strong>JLRM</strong><span>Construções</span></a>
     <nav aria-label="Principal">
       <ul>
         {nav.map((i) => (
-          <li><a href={i.href} aria-current={active(i.href) ? 'page' : undefined}>{i.label}</a></li>
+          <li><a href={u(i.href)} aria-current={active(i.href) ? 'page' : undefined}>{i.label}</a></li>
         ))}
       </ul>
     </nav>

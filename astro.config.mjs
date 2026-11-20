@@ -7,6 +7,7 @@ const site = process.env.SITE_URL || 'https://example.invalid';
 
 export default defineConfig({
   site,
+  base: process.env.BASE_PATH || '/',
   trailingSlash: 'never',
   build: { format: 'file' },
   integrations: [sitemap()],

@@ -1,8 +1,9 @@
 ---
+import { u, siteRoot } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import { site } from '../config/site';
 import { breadcrumbLd } from '../lib/jsonld';
-const siteUrl = Astro.site!.origin;
+const siteUrl = siteRoot(Astro.site!);
 ---
 <Base
   title="Sobre a JLRM Construções | Empreiteiro de obras particulares"
@@ -10,22 +11,22 @@ const siteUrl = Astro.site!.origin;
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Sobre', path: '/sobre' }])]}
 >
   <div class="page-head"><div class="wrap">
-    <p class="crumbs"><a href="/">Início</a> / Sobre</p>
+    <p class="crumbs"><a href={u('/')}>Início</a> / Sobre</p>
     <h1>Sobre a empresa</h1>
     <p class="lead">{site.name} é uma empresa de construção civil sediada em Felgueiras.</p>
   </div></div>
   <div class="page-body"><div class="wrap two">
     <div class="prose">
       <h2>Quem somos</h2>
-      <p>Somos empreiteiros de obras particulares, com alvará n.º {site.legal.alvara} (classe {site.legal.alvaraClasse}). Executamos a construção de <a href="/servicos/construcao-de-moradias">moradias</a> e <a href="/servicos/remodelacoes">remodelações</a>.</p>
+      <p>Somos empreiteiros de obras particulares, com alvará n.º {site.legal.alvara} (classe {site.legal.alvaraClasse}). Executamos a construção de <a href={u('/servicos/construcao-de-moradias')}>moradias</a> e <a href={u('/servicos/remodelacoes')}>remodelações</a>.</p>
       <p><span class="todo">[PREENCHER: história da empresa, como começou, quem a dirige e há quantos anos atua]</span></p>
       <h2>Como trabalhamos</h2>
       <p><span class="todo">[PREENCHER: valores e forma de trabalhar reais, ex.: acompanhamento, cumprimento de prazos, transparência no orçamento]</span></p>
       <h2>Equipa</h2>
       <p><span class="todo">[PREENCHER: gerente e equipa a apresentar, com autorização]</span></p>
       <div class="actions">
-        <a class="btn" href="/contactos">Pedir orçamento</a>
-        <a class="btn secondary" href="/qualificacoes">Qualificações</a>
+        <a class="btn" href={u('/contactos')}>Pedir orçamento</a>
+        <a class="btn secondary" href={u('/qualificacoes')}>Qualificações</a>
       </div>
     </div>
     <dl class="facts" style="align-self:start">

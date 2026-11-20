@@ -1,8 +1,9 @@
 ---
+import { u, siteRoot } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import { site } from '../config/site';
 import { breadcrumbLd } from '../lib/jsonld';
-const siteUrl = Astro.site!.origin;
+const siteUrl = siteRoot(Astro.site!);
 ---
 <Base
   title="Zonas de atuação | JLRM Construções"
@@ -10,7 +11,7 @@ const siteUrl = Astro.site!.origin;
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Zonas de atuação', path: '/zonas-de-atuacao' }])]}
 >
   <div class="page-head"><div class="wrap">
-    <p class="crumbs"><a href="/">Início</a> / Zonas de atuação</p>
+    <p class="crumbs"><a href={u('/')}>Início</a> / Zonas de atuação</p>
     <h1>Zonas de atuação</h1>
     <p class="lead">Sediados em Felgueiras, executamos obras de construção e remodelação em vários concelhos da região.</p>
   </div></div>
@@ -19,8 +20,8 @@ const siteUrl = Astro.site!.origin;
       <h2>Concelhos onde trabalhamos</h2>
       <p>Trabalhamos em moradias e habitações nos concelhos de {site.areaServed.slice(0, -1).join(', ')} e {site.areaServed[site.areaServed.length - 1]}.</p>
       <p>Se a sua obra fica um pouco fora desta lista, fale connosco: dizemos-lhe com franqueza se conseguimos acompanhá-la.</p>
-      <p>Conheça os nossos <a href="/servicos/construcao-de-moradias">serviços de construção de moradias</a> e de <a href="/servicos/remodelacoes">remodelações</a>, ou veja <a href="/obras">obras realizadas</a>.</p>
-      <div class="actions"><a class="btn" href="/contactos">Pedir orçamento</a></div>
+      <p>Conheça os nossos <a href={u('/servicos/construcao-de-moradias')}>serviços de construção de moradias</a> e de <a href={u('/servicos/remodelacoes')}>remodelações</a>, ou veja <a href={u('/obras')}>obras realizadas</a>.</p>
+      <div class="actions"><a class="btn" href={u('/contactos')}>Pedir orçamento</a></div>
     </div>
     <ul style="list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)">
       {site.areaServed.map((c) => <li style="padding:.6rem 0;border-bottom:1px solid var(--ink);font-weight:600">{c}</li>)}

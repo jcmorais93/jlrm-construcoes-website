@@ -1,8 +1,9 @@
 ---
+import { u, siteRoot } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import { site } from '../config/site';
 import { breadcrumbLd } from '../lib/jsonld';
-const siteUrl = Astro.site!.origin;
+const siteUrl = siteRoot(Astro.site!);
 const { legal } = site;
 ---
 <Base
@@ -11,7 +12,7 @@ const { legal } = site;
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Qualificações', path: '/qualificacoes' }])]}
 >
   <div class="page-head"><div class="wrap">
-    <p class="crumbs"><a href="/">Início</a> / Qualificações</p>
+    <p class="crumbs"><a href={u('/')}>Início</a> / Qualificações</p>
     <h1>Qualificações</h1>
     <p class="lead">Empreiteiro habilitado para obras particulares, com alvará emitido pelo IMPIC.</p>
   </div></div>
@@ -22,7 +23,7 @@ const { legal } = site;
       <p>É um alvará de <strong>obras particulares</strong>. Subcategorias: <span class="todo">[PREENCHER: subcategorias do alvará (IMPIC)]</span>.</p>
       <h2>Outras certificações</h2>
       <p><span class="todo">[PREENCHER: certificações, seguros e formação, só se existirem]</span></p>
-      <div class="actions"><a class="btn" href="/contactos">Pedir orçamento</a></div>
+      <div class="actions"><a class="btn" href={u('/contactos')}>Pedir orçamento</a></div>
     </div>
     <dl class="facts" style="align-self:start">
       <div><dt>Alvará</dt><dd>{legal.alvara}</dd></div>

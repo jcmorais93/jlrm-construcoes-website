@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import { site, livroReclamacoesUrl } from '../config/site';
 const { legal, contact } = site;
 const a = contact.address;
@@ -26,8 +27,8 @@ const a = contact.address;
       </p>
       <p>
         <a href={livroReclamacoesUrl} rel="noopener" target="_blank">Livro de Reclamações Eletrónico</a><br />
-        <a href="/qualificacoes">Qualificações</a> · <a href="/zonas-de-atuacao">Zonas de atuação</a><br />
-        <a href="/politica-de-privacidade">Política de privacidade</a>
+        <a href={u('/qualificacoes')}>Qualificações</a> · <a href={u('/zonas-de-atuacao')}>Zonas de atuação</a><br />
+        <a href={u('/politica-de-privacidade')}>Política de privacidade</a>
       </p>
     </div>
   </div>

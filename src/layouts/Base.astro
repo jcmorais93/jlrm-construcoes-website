@@ -1,4 +1,5 @@
 ---
+import { u, base, siteRoot } from '../lib/url';
 import '@fontsource-variable/archivo';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
@@ -14,8 +15,8 @@ const { title, description, jsonLd = [] } = Astro.props;
 // Só produção é indexável. Previews/staging: noindex.
 const indexable = import.meta.env.PUBLIC_ENV === 'production';
 const path = Astro.url.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
-const canonical = new URL(path, Astro.site).href;
-const ogImage = new URL('/og-default.png', Astro.site).href;
+const canonical = new URL(path === base ? base + '/' : path, Astro.site).href;
+const ogImage = siteRoot(Astro.site!) + '/og-default.png';
 ---
 <!doctype html>
 <html lang="pt-PT">
@@ -26,7 +27,7 @@ const ogImage = new URL('/og-default.png', Astro.site).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {!indexable && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_PT" />
     <meta property="og:site_name" content={site.name} />

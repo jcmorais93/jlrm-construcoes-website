@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 const { obra, index = 0, level = 3 } = Astro.props;
 const H = `h${level}` as 'h2' | 'h3';
 const d = obra.data;
@@ -6,11 +7,11 @@ const n = String(index + 1).padStart(2, '0');
 ---
 <article class="obra">
   <figure class="plate" style="margin:0">
-    <img src={d.image} alt={d.alt} width="1200" height="800" loading="lazy" />
+    <img src={u(d.image)} alt={d.alt} width="1200" height="800" loading="lazy" />
     <figcaption class="label"><span>{d.tipo === 'construcao' ? 'Construção' : 'Remodelação'}</span><span>{d.local}</span></figcaption>
   </figure>
   <div class="info">
-    <H><a href={`/obras/${obra.id}`}>{d.title}</a></H>
+    <H><a href={u(`/obras/${obra.id}`)}>{d.title}</a></H>
     <p>{d.summary}</p>
     {d.demo && <span class="badge">Demonstração</span>}
   </div>
