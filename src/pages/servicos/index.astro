@@ -4,14 +4,14 @@ import { breadcrumbLd } from '../../lib/jsonld';
 const siteUrl = Astro.site!.origin;
 ---
 <Base
-  title="Serviços de construção civil em Felgueiras | JLRM Construções"
-  description="Construção de moradias e remodelações em Felgueiras. Conheça os serviços da JLRM Construções."
+  title="Serviços de construção civil | JLRM Construções"
+  description="Construção de moradias e remodelações. Conheça os serviços da JLRM Construções."
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Serviços', path: '/servicos' }])]}
 >
   <div class="page-head"><div class="wrap">
     <p class="crumbs"><a href="/">Início</a> / Serviços</p>
     <h1>Serviços</h1>
-    <p class="lead">Construção de moradias e remodelações, em Felgueiras e arredores.</p>
+    <p class="lead">Construção de moradias e remodelações.</p>
   </div></div>
   <div class="page-body"><div class="wrap">
     <div class="rows">

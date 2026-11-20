@@ -1,7 +1,7 @@
 ---
 title: Moradia T3 geminada
 tipo: construcao
-local: Felgueiras
+local: Localização de exemplo
 summary: "Construção de moradia geminada, com acabamentos tradicionais."
 image: /demo/moradia-t3-geminada.svg
 alt: Ilustração de uma moradia geminada com telhado de telha cerâmica

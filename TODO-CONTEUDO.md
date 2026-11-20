@@ -34,3 +34,4 @@ Todos os dados abaixo vivem em `src/config/site.ts` (procurar `[PREENCHER`).
 - [ ] Textos de `/servicos/*`: validar com o cliente e acrescentar factos reais (≥ ~400 palavras)
 - [ ] `showDemoBanner = false` em `src/config/site.ts`
 - O build com `PUBLIC_ENV=production` falha enquanto existir uma obra com `demo: true`.
+- [ ] Raio/zonas de atuação (o site está genérico; não afirma nenhuma zona. Quando confirmado, preencher `areaServed` em site.ts e, se fizer sentido, acrescentar uma frase no Início)

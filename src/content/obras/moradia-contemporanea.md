@@ -1,7 +1,7 @@
 ---
 title: Moradia de linhas contemporâneas
 tipo: construcao
-local: Felgueiras
+local: Localização de exemplo
 summary: "Moradia de linhas simples, com grandes vãos e isolamento térmico reforçado."
 image: /demo/moradia-contemporanea.svg
 alt: Ilustração de uma moradia contemporânea de fachada clara

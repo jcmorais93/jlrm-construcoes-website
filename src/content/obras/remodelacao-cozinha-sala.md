@@ -1,7 +1,7 @@
 ---
 title: Remodelação de cozinha e sala
 tipo: remodelacao
-local: Felgueiras
+local: Localização de exemplo
 summary: "Obra interior: novos pavimentos, revestimentos e instalações."
 image: /demo/remodelacao-cozinha-sala.svg
 alt: Ilustração de uma casa de um piso com andaimes durante a remodelação

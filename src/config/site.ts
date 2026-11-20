@@ -10,7 +10,7 @@ export const site = {
   name: 'JLRM Construções, Unip., Lda.',
   shortName: 'JLRM Construções',
   locale: 'pt-PT',
-  description: 'Construção civil em Felgueiras.',
+  description: 'Construção civil e remodelações.',
 
   /** Dados legais (rodapé, JSON-LD). Validar com a certidão permanente. */
   legal: {

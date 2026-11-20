@@ -14,7 +14,7 @@ const { Content } = await render(obra);
 const siteUrl = Astro.site!.origin;
 ---
 <Base
-  title={`${d.title} | Obras em Felgueiras`}
+  title={`${d.title} | Obras JLRM Construções`}
   description={d.summary}
   jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Obras', path: '/obras' }, { name: d.title, path: `/obras/${obra.id}` }])]}
 >

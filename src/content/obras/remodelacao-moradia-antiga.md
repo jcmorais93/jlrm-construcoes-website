@@ -1,7 +1,7 @@
 ---
 title: Remodelação integral de moradia antiga
 tipo: remodelacao
-local: Felgueiras
+local: Localização de exemplo
 summary: "Reabilitação completa de moradia, com novo telhado, caixilharias e interiores."
 image: /demo/remodelacao-moradia-antiga.svg
 alt: Ilustração de uma moradia antiga com andaimes durante a remodelação
