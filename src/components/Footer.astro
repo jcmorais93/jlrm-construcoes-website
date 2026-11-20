@@ -1,0 +1,32 @@
+---
+import { site, livroReclamacoesUrl } from '../config/site';
+const { legal, contact } = site;
+const a = contact.address;
+---
+<footer class="site">
+  <div class="wrap cols">
+    <div>
+      <strong>{site.name}</strong>
+      <p>
+        NIF {legal.nif}<br />
+        Capital social: <span class:list={[legal.capitalSocial.includes('[PREENCHER') && 'todo']}>{legal.capitalSocial}</span><br />
+        Registo comercial: <span class:list={[legal.conservatoria.includes('[PREENCHER') && 'todo']}>{legal.conservatoria}</span>
+      </p>
+    </div>
+    <div>
+      <strong>Alvará</strong>
+      <p>Empreiteiro de obras particulares<br />Alvará n.º {legal.alvara} · Classe {legal.alvaraClasse}</p>
+    </div>
+    <div>
+      <strong>Contactos</strong>
+      <p>
+        <span class="todo">{a.street}</span>, {a.locality}<br />
+        <span class="todo">{contact.phone}</span><br />
+        <span class="todo">{contact.email}</span>
+      </p>
+      <p>
+        <a href={livroReclamacoesUrl} rel="noopener" target="_blank">Livro de Reclamações Eletrónico</a>
+      </p>
+    </div>
+  </div>
+</footer>

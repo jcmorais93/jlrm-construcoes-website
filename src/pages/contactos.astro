@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config/site';
+import { organizationLd, breadcrumbLd } from '../lib/jsonld';
+const siteUrl = Astro.site!.origin;
+const { contact } = site;
+const a = contact.address;
+---
+<Base
+  title="Contactos e pedido de orçamento | JLRM Construções Felgueiras"
+  description="Contacte a JLRM Construções, empreiteiro em Felgueiras. Peça um orçamento para a sua obra."
+  jsonLd={[organizationLd(siteUrl), breadcrumbLd(siteUrl, [{ name: 'Contactos', path: '/contactos' }])]}
+>
+  <section>
+    <div class="wrap">
+      <h1>Contactos</h1>
+      <p class="lead">Fale connosco para pedir um orçamento para a sua obra em Felgueiras e arredores.</p>
+      <dl class="facts">
+        <dt>Morada</dt>
+        <dd><span class="todo">{a.street}</span>, <span class="todo">{a.postalCode}</span> {a.locality}</dd>
+        <dt>Telefone</dt>
+        <dd>
+          {contact.phoneHref
+            ? <a href={contact.phoneHref}>{contact.phone}</a>
+            : <span class="todo">{contact.phone}</span>}
+        </dd>
+        <dt>Email</dt>
+        <dd><span class="todo">{contact.email}</span></dd>
+      </dl>
+    </div>
+  </section>
+  <section class="alt">
+    <div class="wrap">
+      <h2>Pedir orçamento</h2>
+      <p><span class="todo">[PREENCHER: formulário de contacto (Fase 2, com Turnstile e envio de email)]</span></p>
+    </div>
+  </section>
+</Base>

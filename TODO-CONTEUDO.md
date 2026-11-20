@@ -25,3 +25,6 @@ Todos os dados abaixo vivem em `src/config/site.ts` (procurar `[PREENCHER`).
 - [ ] Quem gere o Google Business Profile
 - [ ] Textos das páginas (sobre, serviços ≥ ~400 palavras cada)
 - [ ] Descrição da meta description da página inicial
+- [ ] Imagem de partilha 1200×630 (public/og-default.png é um placeholder liso)
+- [ ] Páginas /sobre, /servicos, /obras, /qualificacoes, /politica-de-privacidade (o rodapé já liga à de privacidade; ainda não existe)
+- [ ] Fontes (por agora tipo de letra do sistema)

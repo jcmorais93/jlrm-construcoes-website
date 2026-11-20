@@ -45,3 +45,11 @@ export const site = {
 
 /** true enquanto algum contacto ainda é placeholder */
 export const hasPlaceholders = JSON.stringify(site).includes('[PREENCHER');
+
+/** Navegação. Adicionar páginas aqui só quando existirem (Fase 2). */
+export const nav = [
+  { label: 'Início', href: '/' },
+  { label: 'Contactos', href: '/contactos' },
+];
+
+export const livroReclamacoesUrl = 'https://www.livroreclamacoes.pt/';

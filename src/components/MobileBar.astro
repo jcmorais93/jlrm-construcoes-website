@@ -1,0 +1,8 @@
+---
+import { site } from '../config/site';
+const tel = site.contact.phoneHref;
+---
+<div class="mobile-bar">
+  {tel && <a class="btn secondary" href={tel}>Ligar</a>}
+  <a class="btn" href="/contactos">Pedir orçamento</a>
+</div>

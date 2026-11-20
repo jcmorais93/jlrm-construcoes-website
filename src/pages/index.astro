@@ -1,12 +1,72 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../config/site';
+import { organizationLd } from '../lib/jsonld';
+const siteUrl = Astro.site!.origin;
+const ph = (s: string) => s.includes('[PREENCHER');
 ---
-<Base title="Construção civil em Felgueiras | JLRM Construções" description="Construção civil e remodelações em Felgueiras. [PREENCHER: descrição final]">
-  <main>
-    <h1>Construção civil em Felgueiras</h1>
-    <p>{site.name}</p>
-    <p>Telefone: {site.contact.phone}</p>
-    <p>Email: {site.contact.email}</p>
-  </main>
+<Base
+  title="Construção civil em Felgueiras | JLRM Construções"
+  description="JLRM Construções: empreiteiro de obras particulares em Felgueiras. Alvará 95281-PAR. Peça o seu orçamento."
+  jsonLd={[organizationLd(siteUrl)]}
+>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Construção civil em Felgueiras</h1>
+      <p class="lead">
+        A {site.name} é uma empresa de construção civil sediada em Felgueiras,
+        com alvará de empreiteiro de obras particulares.
+      </p>
+      <div class="actions">
+        <a class="btn" href="/contactos">Pedir orçamento</a>
+        {site.contact.phoneHref && <a class="btn secondary" href={site.contact.phoneHref}>Ligar</a>}
+      </div>
+      <div class="hero-img" role="img" aria-label="Espaço reservado para fotografia de obra">
+        <span class="todo">[PREENCHER: fotografia principal de obra]</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>Quem somos</h2>
+      <p>
+        <span class="todo">[PREENCHER: apresentação da empresa, história e valores]</span>
+      </p>
+      <p>
+        Experiência:
+        <span class:list={[ph(site.legal.foundingYear) && 'todo']}>{site.legal.foundingYear}</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>O que fazemos</h2>
+      <div class="grid">
+        {[1, 2, 3].map(() => (
+          <div class="card"><span class="todo">[PREENCHER: serviço e descrição curta]</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Credenciais</h2>
+      <dl class="facts">
+        <dt>Alvará</dt><dd>{site.legal.alvara} (obras particulares)</dd>
+        <dt>Classe</dt><dd>{site.legal.alvaraClasse}</dd>
+        <dt>NIF</dt><dd>{site.legal.nif}</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>O que nos distingue</h2>
+      <p><span class="todo">[PREENCHER: diferenciais reais, sem exageros]</span></p>
+      <div class="actions"><a class="btn" href="/contactos">Fale connosco</a></div>
+    </div>
+  </section>
 </Base>
