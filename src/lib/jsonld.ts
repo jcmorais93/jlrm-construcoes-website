@@ -28,7 +28,7 @@ export function organizationLd(siteUrl: string) {
     vatID: `PT${site.legal.nif}`,
     foundingDate: real(site.legal.foundingYear),
     address,
-    areaServed: site.areaServed,
+    areaServed: site.areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
     sameAs: site.social,
   });
 }

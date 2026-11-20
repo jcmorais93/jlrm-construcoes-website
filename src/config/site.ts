@@ -39,8 +39,13 @@ export const site = {
   /** Perfis reais, quando existirem (usados em JSON-LD sameAs). */
   social: [] as string[],
 
-  /** Zonas confirmadas pelo cliente. Não adicionar sem confirmação. */
-  areaServed: [] as string[],
+  /** Concelhos num raio de ~30 km (linha reta) de Felgueiras, definidos pelo cliente. Ordenados por proximidade. Rever com o cliente. */
+  areaServed: [
+    'Felgueiras', 'Vizela', 'Fafe', 'Guimarães', 'Lousada', 'Amarante',
+    'Celorico de Basto', 'Paços de Ferreira', 'Penafiel', 'Marco de Canaveses',
+    'Paredes', 'Mondim de Basto', 'Santo Tirso', 'Cabeceiras de Basto',
+    'Póvoa de Lanhoso', 'Baião', 'Vila Nova de Famalicão', 'Braga',
+  ],
 };
 
 /** true enquanto algum contacto ainda é placeholder */
@@ -51,6 +56,7 @@ export const nav = [
   { label: 'Início', href: '/' },
   { label: 'Serviços', href: '/servicos' },
   { label: 'Obras', href: '/obras' },
+  { label: 'Zonas', href: '/zonas-de-atuacao' },
   { label: 'Contactos', href: '/contactos' },
 ];
 
