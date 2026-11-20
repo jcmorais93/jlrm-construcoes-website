@@ -7,19 +7,19 @@
 const P = (desc: string) => `[PREENCHER: ${desc}]`;
 
 export const site = {
-  name: 'Joaquim Luís Teixeira Vieira, Lda.',
-  shortName: 'JLT Vieira',
+  name: 'JLRM Construções, Unip., Lda.',
+  shortName: 'JLRM Construções',
   locale: 'pt-PT',
   description: 'Construção civil em Felgueiras.',
 
   /** Dados legais (rodapé, JSON-LD). Validar com a certidão permanente. */
   legal: {
-    nif: '505685604',
-    capitalSocial: '55.000 €',
+    nif: '515746274',
+    capitalSocial: P('capital social'),
     conservatoria: P('conservatória do registo comercial'),
-    alvara: '44583',
-    alvaraClasse: P('classe e subcategorias do alvará (IMPIC)'),
-    foundingYear: P('ano de fundação (a confirmar; fontes indicam 2001)'),
+    alvara: '95281-PAR', // alvará de empreiteiro de obras particulares, inscrito em 01/04/2020
+    alvaraClasse: '2', // subcategorias: ver IMPIC,
+    foundingYear: P('ano de fundação (inscrição no IMPIC: 2020; confirmar constituição)'),
   },
 
   /** Contactos. Placeholders até o cliente validar os reais. */
@@ -29,7 +29,7 @@ export const site = {
     email: P('email profissional'),
     address: {
       street: P('rua e número'),
-      locality: 'Felgueiras',
+      locality: 'Felgueiras' /* freguesia: Unhão (IMPIC) */,
       postalCode: P('código postal'),
       region: 'Porto',
       country: 'PT',

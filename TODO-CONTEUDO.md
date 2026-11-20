@@ -5,13 +5,15 @@ Todos os dados abaixo vivem em `src/config/site.ts` (procurar `[PREENCHER`).
 ## Contactos (omitidos de propósito na fase inicial)
 - [ ] Telefone (+ `phoneHref`)
 - [ ] Email profissional (propor domínio próprio)
-- [ ] Morada completa e código postal (fontes divergem: 4610-821 / 4610-810 / 4610-809)
+- [ ] Morada completa (IMPIC: Rua Bouça 90, Unhão, 4650-658 Felgueiras; confirmar e decidir se se publica)
 
 ## Dados legais
-- [ ] Classe e subcategorias do alvará 44583 (IMPIC)
+- [ ] Subcategorias do alvará 95281-PAR (classe 2, do IMPIC)
+- [ ] Confirmar se fazem obras públicas (o alvará é só de obras particulares; não criar essa página sem alvará próprio)
 - [ ] Conservatória do registo comercial
-- [ ] Ano de fundação (fontes indicam 2001)
-- [ ] Confirmar NIF e capital social na certidão permanente
+- [ ] Ano de fundação / constituição (IMPIC: inscrição em 2020)
+- [ ] Capital social
+- [ ] Confirmar NIF 515746274 na certidão permanente
 
 ## Conteúdo
 - [ ] Logótipo e cores

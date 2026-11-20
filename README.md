@@ -1,6 +1,6 @@
-# JLT Vieira — website
+# JLRM Construções — website
 
-Site institucional (Astro, estático) de Joaquim Luís Teixeira Vieira, Lda., Felgueiras.
+Site institucional (Astro, estático) de JLRM Construções, Unip., Lda., Felgueiras.
 
 ## Correr localmente
 ```bash
