@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
 import { site } from '../config/site';
 import { organizationLd, breadcrumbLd } from '../lib/jsonld';
 const siteUrl = Astro.site!.origin;
@@ -24,7 +25,7 @@ const a = contact.address;
     </dl>
     <div>
       <h2>Pedir orçamento</h2>
-      <p style="margin-top:1rem"><span class="todo">[PREENCHER: formulário de contacto (Fase 2, com Turnstile e envio de email)]</span></p>
+      <div style="margin-top:1.25rem"><ContactForm /></div>
     </div>
   </div></div>
 </Base>

@@ -26,7 +26,7 @@ Todos os dados abaixo vivem em `src/config/site.ts` (procurar `[PREENCHER`).
 - [ ] Textos das páginas (sobre, serviços ≥ ~400 palavras cada)
 - [ ] Descrição da meta description da página inicial
 - [ ] Imagem de partilha 1200×630 (public/og-default.png é um placeholder liso)
-- [ ] Páginas /sobre, /servicos, /obras, /qualificacoes, /politica-de-privacidade (o rodapé já liga à de privacidade; ainda não existe)
+
 - [ ] Fontes (por agora tipo de letra do sistema)
 
 ## Conteúdo de DEMONSTRAÇÃO a substituir antes do lançamento
@@ -35,3 +35,8 @@ Todos os dados abaixo vivem em `src/config/site.ts` (procurar `[PREENCHER`).
 - [ ] `showDemoBanner = false` em `src/config/site.ts`
 - O build com `PUBLIC_ENV=production` falha enquanto existir uma obra com `demo: true`.
 - [ ] Zonas de atuação: definidas como concelhos num raio de ~30 km (linha reta, coordenadas aproximadas) em `areaServed` de site.ts. Rever a lista com o cliente. Se quiser páginas por concelho, só com texto próprio e obras reais (evitar páginas quase iguais)
+
+## Fase 2b — formulário real
+- [ ] O formulário é MOCK (`src/lib/contact-form.ts`, `MOCK = true`): nenhum pedido é enviado. Falta a Pages Function `/api/contacto`, o Turnstile e o envio por email (Resend). Remover o aviso de demonstração do formulário ao ligar.
+- [ ] Política de privacidade: validar texto, prazo de conservação e fornecedores
+- [ ] Páginas Sobre e Qualificações: história, equipa, subcategorias, certificações

@@ -1,0 +1,37 @@
+---
+import { MOCK } from '../lib/contact-form';
+---
+<form id="contact-form" novalidate method="post" action="#" class="form">
+  {MOCK && <p class="form-note"><span class="badge">Demonstração</span> Este formulário é simulado: nenhum pedido é enviado.</p>}
+  <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" autocomplete="name" required /></div>
+  <div class="field-row">
+    <div class="field"><label for="telefone">Telefone</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" required /></div>
+    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+  </div>
+  <div class="field-row">
+    <div class="field">
+      <label for="tipo">Tipo de obra</label>
+      <select id="tipo" name="tipo" required>
+        <option value="">Selecione…</option>
+        <option>Construção de moradia</option>
+        <option>Remodelação</option>
+        <option>Outro</option>
+      </select>
+    </div>
+    <div class="field"><label for="localizacao">Localização da obra</label><input id="localizacao" name="localizacao" placeholder="Concelho" required /></div>
+  </div>
+  <div class="field"><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" rows="5" required></textarea></div>
+  <div class="hp" aria-hidden="true"><label>Não preencher<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+  <p class="todo" style="display:inline-block">[PREENCHER: widget Cloudflare Turnstile (anti-spam)]</p>
+  <div class="check">
+    <input id="rgpd" name="rgpd" type="checkbox" required />
+    <label for="rgpd">Li e aceito a <a href="/politica-de-privacidade">política de privacidade</a> e autorizo o contacto para responder ao meu pedido.</label>
+  </div>
+  <button class="btn" type="submit">Enviar pedido</button>
+  <p data-status role="status" aria-live="polite" class="form-status"></p>
+</form>
+<script>
+  import { initContactForm } from '../lib/contact-form';
+  const f = document.getElementById('contact-form');
+  if (f instanceof HTMLFormElement) initContactForm(f);
+</script>

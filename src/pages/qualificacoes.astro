@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config/site';
+import { breadcrumbLd } from '../lib/jsonld';
+const siteUrl = Astro.site!.origin;
+const { legal } = site;
+---
+<Base
+  title="Qualificações e alvará IMPIC | JLRM Construções"
+  description="Alvará de empreiteiro de obras particulares n.º 95281-PAR, classe 2, emitido pelo IMPIC. Consulte as qualificações da JLRM Construções."
+  jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Qualificações', path: '/qualificacoes' }])]}
+>
+  <div class="page-head"><div class="wrap">
+    <p class="crumbs"><a href="/">Início</a> / Qualificações</p>
+    <h1>Qualificações</h1>
+    <p class="lead">Empreiteiro habilitado para obras particulares, com alvará emitido pelo IMPIC.</p>
+  </div></div>
+  <div class="page-body"><div class="wrap two">
+    <div class="prose">
+      <h2>Alvará de empreiteiro de obras particulares</h2>
+      <p>O alvará é o título que habilita uma empresa a exercer a atividade de construção. O nosso é o n.º {legal.alvara}, classe {legal.alvaraClasse}, e pode ser consultado no portal do <a href="https://www.impic.pt/" rel="noopener" target="_blank">IMPIC</a>, o Instituto dos Mercados Públicos, do Imobiliário e da Construção.</p>
+      <p>É um alvará de <strong>obras particulares</strong>. Subcategorias: <span class="todo">[PREENCHER: subcategorias do alvará (IMPIC)]</span>.</p>
+      <h2>Outras certificações</h2>
+      <p><span class="todo">[PREENCHER: certificações, seguros e formação, só se existirem]</span></p>
+      <div class="actions"><a class="btn" href="/contactos">Pedir orçamento</a></div>
+    </div>
+    <dl class="facts" style="align-self:start">
+      <div><dt>Alvará</dt><dd>{legal.alvara}</dd></div>
+      <div><dt>Tipo</dt><dd>Obras particulares</dd></div>
+      <div><dt>Classe</dt><dd>{legal.alvaraClasse}</dd></div>
+      <div><dt>Entidade</dt><dd>IMPIC</dd></div>
+    </dl>
+  </div></div>
+</Base>

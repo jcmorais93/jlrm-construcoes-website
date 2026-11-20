@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config/site';
+import { breadcrumbLd } from '../lib/jsonld';
+const siteUrl = Astro.site!.origin;
+const { legal, contact } = site;
+---
+<Base
+  title="Política de privacidade | JLRM Construções"
+  description="Como a JLRM Construções trata os dados pessoais recolhidos através do formulário de contacto, ao abrigo do RGPD."
+  jsonLd={[breadcrumbLd(siteUrl, [{ name: 'Política de privacidade', path: '/politica-de-privacidade' }])]}
+>
+  <div class="page-head"><div class="wrap">
+    <p class="crumbs"><a href="/">Início</a> / Política de privacidade</p>
+    <h1>Política de privacidade</h1>
+    <p class="lead"><span class="todo">[PREENCHER: texto-base a validar pelo cliente e por um jurista]</span></p>
+  </div></div>
+  <div class="page-body"><div class="wrap">
+    <div class="prose">
+      <h2>Responsável pelo tratamento</h2>
+      <p>{site.name}, NIF {legal.nif}, com sede em <span class="todo">{contact.address.street}</span>, Felgueiras. Contacto: <span class="todo">{contact.email}</span>.</p>
+      <h2>Que dados recolhemos e para quê</h2>
+      <p>Quando preenche o formulário de contacto, recolhemos o nome, o telefone, o email, o tipo de obra, a localização e a mensagem. Usamos estes dados apenas para responder ao seu pedido de contacto ou de orçamento.</p>
+      <h2>Fundamento legal</h2>
+      <p>O tratamento baseia-se no seu consentimento e nas diligências pré-contratuais a seu pedido (RGPD, art. 6.º, n.º 1, alíneas a) e b)).</p>
+      <h2>Com quem partilhamos</h2>
+      <p>Não vendemos nem cedemos os seus dados. Podem ser tratados por prestadores de serviços que nos apoiam no alojamento do site e no envio de email, que atuam em nosso nome e segundo as nossas instruções. <span class="todo">[PREENCHER: confirmar fornecedores finais]</span></p>
+      <h2>Durante quanto tempo guardamos</h2>
+      <p><span class="todo">[PREENCHER: prazo de conservação, a definir com o cliente]</span></p>
+      <h2>Os seus direitos</h2>
+      <p>Pode pedir o acesso, a retificação ou o apagamento dos seus dados, a limitação ou oposição ao tratamento, a portabilidade e retirar o consentimento a qualquer momento, contactando-nos. Tem ainda o direito de apresentar reclamação à <a href="https://www.cnpd.pt/" rel="noopener" target="_blank">Comissão Nacional de Proteção de Dados</a>.</p>
+      <h2>Cookies</h2>
+      <p>Este site não utiliza cookies de análise nem de marketing. <span class="todo">[PREENCHER: rever se vier a ser adicionada análise de audiência]</span></p>
+      <p class="label">Última atualização: <span class="todo">[PREENCHER: data]</span></p>
+    </div>
+  </div></div>
+</Base>

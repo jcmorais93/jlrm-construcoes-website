@@ -54,9 +54,9 @@ export const hasPlaceholders = JSON.stringify(site).includes('[PREENCHER');
 /** Navegação. Adicionar páginas aqui só quando existirem (Fase 2). */
 export const nav = [
   { label: 'Início', href: '/' },
+  { label: 'Sobre', href: '/sobre' },
   { label: 'Serviços', href: '/servicos' },
   { label: 'Obras', href: '/obras' },
-  { label: 'Zonas', href: '/zonas-de-atuacao' },
   { label: 'Contactos', href: '/contactos' },
 ];
 
